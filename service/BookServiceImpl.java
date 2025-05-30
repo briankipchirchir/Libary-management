@@ -3,6 +3,7 @@ package com.example.libbby.service;
 import com.example.libbby.dto.BookDTO;
 import com.example.libbby.model.Book;
 import com.example.libbby.repository.BookRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,14 +12,15 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class BookServiceImpl implements BookService {
 
     private final BookRepository bookRepository;
 
-    @Autowired
+  /*  @Autowired
     public BookServiceImpl(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
-    }
+    }*/
 
     @Override
     public BookDTO createBook(BookDTO bookDTO) {
