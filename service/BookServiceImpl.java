@@ -52,7 +52,7 @@ public class BookServiceImpl implements BookService {
         // Check if book exists
         Optional<Book> existingBookOpt = bookRepository.findById(id);
         if (existingBookOpt.isEmpty()) {
-            throw new RuntimeException("Book not found with id: " + id); // You could throw a custom exception here
+            throw new RuntimeException("Book not found with id: " + id); 
         }
 
         Book existingBook = existingBookOpt.get();
@@ -73,7 +73,7 @@ public class BookServiceImpl implements BookService {
     public BookDTO getBookById(Long id) {
         // Find book by ID
         Book book = bookRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Book not found with id: " + id)); // You could throw a custom exception here
+                .orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
         return new BookDTO(book.getId(), book.getTitle(), book.getAuthor(),
                 book.getIsbn(), book.getPublisher());
     }
@@ -92,7 +92,7 @@ public class BookServiceImpl implements BookService {
     public void deleteBook(Long id) {
         // Check if book exists
         if (!bookRepository.existsById(id)) {
-            throw new RuntimeException("Book not found with id: " + id); // You could throw a custom exception here
+            throw new RuntimeException("Book not found with id: " + id); 
         }
 
         // Delete book from DB
